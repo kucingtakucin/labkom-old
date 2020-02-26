@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 18, 2020 at 03:38 PM
+-- Generation Time: Feb 26, 2020 at 12:43 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -57,11 +57,21 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (1, '2014_10_12_000000_create_users_table', 1),
 (2, '2014_10_12_100000_create_password_resets_table', 1),
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
-(4, '2020_02_16_083920_create_peminjaman_alat_models_table', 1),
-(5, '2020_02_17_013117_create_peminjaman_studio_models_table', 1),
-(6, '2020_02_17_053335_create_peminjaman_lab_di_dalam_models_table', 1),
-(7, '2020_02_17_055909_create_peminjaman_lab_di_luar_models_table', 1),
-(8, '2020_02_17_134729_create_surat_bebas_labkom_models_table', 1);
+(4, '2020_02_19_230147_create_program_studi_models_table', 1),
+(5, '2020_02_19_230207_create_lab_models_table', 1),
+(6, '2020_02_19_230220_create_alat_models_table', 1),
+(7, '2020_02_19_230241_create_angkatan_models_table', 1),
+(8, '2020_02_19_233231_create_software_models_table', 1),
+(9, '2020_02_21_120000_create_mahasiswa_models_table', 1),
+(10, '2020_02_21_130111_create_mata_kuliah_models_table', 1),
+(11, '2020_02_21_130253_create_dosen_models_table', 1),
+(12, '2020_02_21_131650_create_peminjaman_alat_models_table', 1),
+(13, '2020_02_21_134026_create_peminjaman_studio_models_table', 1),
+(14, '2020_02_21_135316_create_peminjaman_lab_di_dalam_models_table', 1),
+(15, '2020_02_21_135604_create_peminjaman_lab_di_luar_models_table', 1),
+(16, '2020_02_21_140609_create_surat_bebas_labkom_models_table', 1),
+(17, '2020_02_21_140745_create_jasa_installasi_models_table', 1),
+(18, '2020_02_21_141035_create_jasa_print_models_table', 1);
 
 -- --------------------------------------------------------
 
@@ -73,123 +83,6 @@ CREATE TABLE `password_resets` (
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `peminjaman_alat_models`
---
-
-CREATE TABLE `peminjaman_alat_models` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `nama` char(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nim` char(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `jenis_kelamin` char(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `program_studi` char(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `angkatan` int(11) NOT NULL,
-  `hari` char(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tanggal` char(25) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `waktu` char(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `alat` char(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `jumlah` tinyint(4) NOT NULL,
-  `lama_peminjaman` char(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `harga` int(11) NOT NULL,
-  `keperluan` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `peminjaman_lab_di_dalam_models`
---
-
-CREATE TABLE `peminjaman_lab_di_dalam_models` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `nama` char(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nim` char(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `jenis_kelamin` char(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `program_studi` char(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `angkatan` int(11) NOT NULL,
-  `hari` char(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tanggal` char(25) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `lab` char(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `jam_pinjam` char(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `jam_kembali` char(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `dosen_pengampu` char(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `mata_kuliah` char(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `keperluan` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `peminjaman_lab_di_luar_models`
---
-
-CREATE TABLE `peminjaman_lab_di_luar_models` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `nama` char(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nim` char(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `jenis_kelamin` char(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `program_studi` char(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `angkatan` int(11) NOT NULL,
-  `hari` char(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tanggal` char(25) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `lab` char(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `jam_pinjam` char(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `jam_kembali` char(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `dosen_pengampu` char(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `mata_kuliah` char(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `keperluan` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `peminjaman_studio_models`
---
-
-CREATE TABLE `peminjaman_studio_models` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `nama` char(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nim` char(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `jenis_kelamin` char(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `program_studi` char(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `angkatan` int(11) NOT NULL,
-  `hari` char(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tanggal` char(25) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `waktu` char(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `dosen_pengampu` char(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `keperluan` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `surat_bebas_labkom_models`
---
-
-CREATE TABLE `surat_bebas_labkom_models` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `nama` char(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nim` char(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `jenis_kelamin` char(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `program_studi` char(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `angkatan` int(11) NOT NULL,
-  `hari` char(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tanggal` char(25) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `keperluan` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -209,13 +102,6 @@ CREATE TABLE `users` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`id`, `name`, `email`, `password`, `role_status`, `email_verified_at`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Adam', 'adam.faizal.af6@gmail.com', '$2y$10$8aP4BU7kBLeMxnWsrr7SLOTUL6xPn/WlYrmfKd4bnm5vzPgHPiNii', 0, '2020-02-18 02:16:01', 'gy67QEUO3WD9lQeqtsBVDUPpgqegHztXamwEM46vc1vmcVbE7VeSJo0pEYIW', '2020-02-18 02:05:38', '2020-02-18 02:32:46');
 
 --
 -- Indexes for dumped tables
@@ -240,36 +126,6 @@ ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
--- Indexes for table `peminjaman_alat_models`
---
-ALTER TABLE `peminjaman_alat_models`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `peminjaman_lab_di_dalam_models`
---
-ALTER TABLE `peminjaman_lab_di_dalam_models`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `peminjaman_lab_di_luar_models`
---
-ALTER TABLE `peminjaman_lab_di_luar_models`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `peminjaman_studio_models`
---
-ALTER TABLE `peminjaman_studio_models`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `surat_bebas_labkom_models`
---
-ALTER TABLE `surat_bebas_labkom_models`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -290,43 +146,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT for table `peminjaman_alat_models`
---
-ALTER TABLE `peminjaman_alat_models`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `peminjaman_lab_di_dalam_models`
---
-ALTER TABLE `peminjaman_lab_di_dalam_models`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `peminjaman_lab_di_luar_models`
---
-ALTER TABLE `peminjaman_lab_di_luar_models`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `peminjaman_studio_models`
---
-ALTER TABLE `peminjaman_studio_models`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `surat_bebas_labkom_models`
---
-ALTER TABLE `surat_bebas_labkom_models`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
