@@ -17,10 +17,8 @@ class CreateJasaInstallasiModelsTable extends Migration
             $table->bigIncrements('id');
             $table->string('mahasiswa');
             $table->unsignedBigInteger('no_hp');
-            $table->enum('hari', ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu']);
             $table->date('tanggal');
-            $table->string('laptop', 25);
-            $table->text('spesifikasi');
+            $table->string('laptop', 75);
             $table->string('kelengkapan', 50);
             $table->unsignedBigInteger('id_software');
             $table->string('install_ulang', 10);

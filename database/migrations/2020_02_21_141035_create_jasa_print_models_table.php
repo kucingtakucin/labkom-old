@@ -15,7 +15,8 @@ class CreateJasaPrintModelsTable extends Migration
     {
         Schema::create('jasa_print', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('keterangan_print');
+            $table->enum('keterangan_print', ['berwarna', 'hitam_putih']);
+            $table->integer('lembar');
             $table->date('tanggal');
             $table->text('lainlain');
         });
